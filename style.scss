@@ -4,7 +4,10 @@
   --primary-color: #00b39b;
   --btn-color: #3d84df;
   --gray: #ababab;
-  --dark-gray: rgb(73, 73, 73);
+  --dark-gray: #494949;
+  --patients-color: #00ccb1;
+  --doctors-color: #3e84e0;
+  --clinics-color: #1a2632;
   --work-sans: "Work Sans", sans-serif;
   --roboto: "Roboto", sans-serif;
 }
@@ -19,8 +22,9 @@
 
 .navbar {
   position: sticky;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   top: 0;
-  background-color: rgba($color: #fff, $alpha: 0.98);
+  background-color: rgba($color: #fff, $alpha: 0.95);
   .navbar-content {
     display: flex;
     align-items: center;
@@ -114,17 +118,56 @@ header {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
     justify-content: space-around;
 
     .service-card {
-      height: 50%;
-      flex-basis: 25%;
+      height: 60%;
+      flex-basis: 30%;
       padding: 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: space-around;
+      border-radius: 10px;
+      color: #fff;
+
+      &.patients {
+        background-color: var(--patients-color);
+
+        &:hover {
+          background-color: lighten(#00ccb1, 3%);
+        }
+
+        select {
+          background-color: var(--patients-color);
+        }
+      }
+
+      &.doctors {
+        background-color: var(--doctors-color);
+
+        &:hover {
+          background-color: lighten(#3e84e0, 3%);
+        }
+
+        select {
+          background-color: var(--doctors-color);
+        }
+      }
+
+      &.clinics {
+        background-color: var(--clinics-color);
+
+        &:hover {
+          background-color: lighten(#1a2632, 3%);
+        }
+
+        select {
+          background-color: var(--clinics-color);
+        }
+      }
 
       .card-content {
         display: flex;
@@ -146,10 +189,88 @@ header {
 
         p {
           font-family: var(--work-sans);
-          font-size: 22px;
+          font-size: 18px;
           font-weight: 400;
-          line-height: 1.6;
+          line-height: 28px;
           margin-bottom: 10px;
+        }
+      }
+
+      .options {
+        select {
+          padding: 5px 10px;
+          border: none;
+          cursor: pointer;
+          font-family: var(--work-sans);
+          font-size: 20px;
+          text-decoration: underline;
+          text-align: start;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.brands {
+  padding: 20px;
+
+  .brands-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    h1 {
+      padding: 30px;
+      flex: 1;
+      font-family: var(--work-sans);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--primary-color);
+    }
+
+    .brands-list {
+      list-style: none;
+      flex: 2;
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .brand {
+        margin: 0 10px;
+        a {
+          color: var(--gray);
+          svg {
+            height: 20px;
+            width: auto;
+            max-width: 100%;
+            padding-left: 10px;
+
+            path {
+              fill: hsla(0, 0%, 67%, 0.7);
+            }
+          }
+        }
+
+        &.gipo {
+          a {
+            svg {
+              height: 40px;
+              width: auto;
+              max-width: 100%;
+            }
+          }
+        }
+
+        &.clinic-cloud {
+          a {
+            svg {
+              height: 40px;
+              width: auto;
+              max-width: 100%;
+            }
+          }
         }
       }
     }
